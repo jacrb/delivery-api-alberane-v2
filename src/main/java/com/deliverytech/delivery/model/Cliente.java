@@ -3,6 +3,7 @@ package com.deliverytech.delivery.model;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,6 +30,9 @@ public class Cliente {
 
     @Builder.Default
     private Boolean ativo = true;
+
+    @Embedded
+    private Endereco enderecoCliente;
     
     @Builder.Default
     private LocalDateTime dataCriacao = LocalDateTime.now();
