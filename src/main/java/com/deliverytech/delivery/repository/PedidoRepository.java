@@ -9,7 +9,7 @@ import com.deliverytech.delivery.model.Pedido;
 import com.deliverytech.delivery.model.StatusPedido;
 
 public interface PedidoRepository extends JpaRepository<Pedido, Long>{
-    List<Pedido> findBtClienteId(Long clienteId);
+    List<Pedido> findByClienteId(Long clienteId);
     List<Pedido> findByRestauranteId(Long restauranteId);
     List<Pedido> findByStatus(StatusPedido status);
     List<Pedido> findByDataPedidoBetween(LocalDateTime inicio, LocalDateTime fim);
