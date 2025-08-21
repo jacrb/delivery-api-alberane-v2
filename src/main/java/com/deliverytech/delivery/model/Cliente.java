@@ -31,8 +31,8 @@ public class Cliente {
     @Builder.Default
     private Boolean ativo = true;
 
-    @Embedded
-    private Endereco enderecoCliente;
+    // @Embedded
+    // private Endereco enderecoCliente;
     
     @Builder.Default
     private LocalDateTime dataCriacao = LocalDateTime.now();
