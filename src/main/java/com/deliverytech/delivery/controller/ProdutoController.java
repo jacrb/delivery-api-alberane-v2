@@ -59,7 +59,10 @@ public class ProdutoController {
         }
 
         @GetMapping("/restaurante/{restauranteId}")
-        @Operation(summary = "Lista Produtos por Restaurante", description = "Retorna todos os produtos a partir de um ID de restaurante")
+        @Operation(
+                summary = "Lista Produtos por Restaurante", 
+                description = "Retorna todos os produtos a partir de um ID de restaurante"
+        )
         public List<ProdutoResponse> listarPorRestaurante(@PathVariable Long restauranteId) {
                 return produtoService.buscarPorRestaurante(restauranteId).stream()
                                 .map(p -> new ProdutoResponse(p.getId(), p.getNome(), p.getCategoria(),
@@ -69,7 +72,11 @@ public class ProdutoController {
         }
 
         @PutMapping("/{id}")
-        @Operation(summary = "Atualiza Produto do Restaurante", description = "Atualiza um Produto do restaurante definido no ID")
+
+        @Operation(
+                summary = "Atualiza Produto do Restaurante", 
+                description = "Atualiza um Produto do restaurante definido no ID"
+        )
         public ResponseEntity<ProdutoResponse> atualizar(
                         @Parameter(description = "ID do Produto a ser atualizado", example = "10", required = true) @PathVariable Long id,
                         @Valid @RequestBody ProdutoRequest request) {
@@ -86,7 +93,9 @@ public class ProdutoController {
         }
 
         @PatchMapping("/{id}/disponibilidade")
-        @Operation(summary = "Alterna a disponibilidade de um Produto")
+        @Operation(
+                summary = "Alterna a disponibilidade de um Produto"
+        )
         public ResponseEntity<Void> alterarDisponibilidade(@PathVariable Long id, @RequestParam boolean disponivel) {
                 produtoService.alterarDisponibilidade(id, disponivel);
                 return ResponseEntity.noContent().build();
