@@ -16,13 +16,16 @@ import com.deliverytech.delivery.dto.request.RestauranteRequest;
 import com.deliverytech.delivery.dto.response.RestauranteResponse;
 import com.deliverytech.delivery.exception.ConflictException;
 import com.deliverytech.delivery.model.Restaurante;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import com.deliverytech.delivery.service.RestauranteService;
 
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
-@Tag(name = "Restaurantes", description = "Endpoint de REstaurantes")
+@Tag(name = "Restaurantes", description = "Endpoint de restaurantes")
 @RestController
 @RequestMapping("/api/restaurantes")
 @RequiredArgsConstructor
