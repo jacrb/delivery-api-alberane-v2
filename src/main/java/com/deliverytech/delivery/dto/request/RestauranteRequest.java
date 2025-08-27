@@ -32,6 +32,7 @@ public class RestauranteRequest {
         required = true
     )
     @NotBlank
+    @Schema(description = "Nome do restaurante", example = "restaurante do zé e cia")
     private String nome;
 
     @Schema(
@@ -40,6 +41,7 @@ public class RestauranteRequest {
         required = true
     )
     @NotBlank
+    @Schema(description = "Categoria do restaurante", example = "pizzaria")
     private String categoria;
 
     @Schema(
@@ -48,6 +50,7 @@ public class RestauranteRequest {
         required = true
     )
     @NotBlank
+    @Schema(description = "Telefone do restaurante", example = "9966666666")
     private String telefone;
 
     @Schema(
@@ -56,6 +59,7 @@ public class RestauranteRequest {
         required = true
     )
     @Positive
+    @Schema(description = "Taxa de entrega em Reais (R$)", example = "5.00")
     private BigDecimal taxaEntrega;
 
     @Schema(
@@ -65,5 +69,6 @@ public class RestauranteRequest {
     )
     @Min(5)
     @Max(90)
+    @Schema(description = "Tempo estimado de entrega em minutos", example = "30")
     private Integer tempoEntregaMinutos;
 }
