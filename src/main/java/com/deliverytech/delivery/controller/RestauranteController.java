@@ -18,9 +18,11 @@ import com.deliverytech.delivery.exception.ConflictException;
 import com.deliverytech.delivery.model.Restaurante;
 import com.deliverytech.delivery.service.RestauranteService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+@Tag(name = "Restaurantes", description = "Endpoint de REstaurantes")
 @RestController
 @RequestMapping("/api/restaurantes")
 @RequiredArgsConstructor
@@ -29,6 +31,7 @@ public class RestauranteController {
         private final RestauranteService restauranteService;
 
         @PostMapping
+        @Operation(summary = "Cadastra um Restaurante")
         public ResponseEntity<RestauranteResponse> cadastrar(@Valid @RequestBody RestauranteRequest request) {
 
                 // Validação: Verificar se já existe um restaurante com o mesmo nome
@@ -52,6 +55,7 @@ public class RestauranteController {
         }
 
         @GetMapping
+        @Operation(summary = "Lista os restaurantes cadastrados", description = "Retorna uma lista de restaurantes cadastrados no sistema")
         public List<RestauranteResponse> listarTodos() {
                 return restauranteService.listarTodos().stream()
                                 .map(r -> new RestauranteResponse(r.getId(), r.getNome(), r.getCategoria(),
@@ -61,6 +65,7 @@ public class RestauranteController {
         }
 
         @GetMapping("/{id}")
+        @Operation(summary = "Lista os restaurantes por ID", description = "Lista os dados de um restaurante a partir do ID informado")
         public ResponseEntity<RestauranteResponse> buscarPorId(@PathVariable Long id) {
                 return restauranteService.buscarPorId(id)
                                 .map(r -> new RestauranteResponse(r.getId(), r.getNome(), r.getCategoria(),
@@ -71,6 +76,7 @@ public class RestauranteController {
         }
 
         @GetMapping("/categoria/{categoria}")
+        @Operation(summary = "Lista os restaurantes por categoria", description = "Lista os dados de um restaurante a partir da categoria informada")
         public List<RestauranteResponse> buscarPorCategoria(@PathVariable String categoria) {
                 return restauranteService.buscarPorCategoria(categoria).stream()
                                 .map(r -> new RestauranteResponse(r.getId(), r.getNome(), r.getCategoria(),
@@ -80,6 +86,7 @@ public class RestauranteController {
         }
 
         @PutMapping("/{id}")
+        @Operation(summary = "Atualiza os dados de um restaurante", description = "Atualiza os dados de um restaurante a partir do ID informado")
         public ResponseEntity<RestauranteResponse> atualizar(@PathVariable Long id,
                         @Valid @RequestBody RestauranteRequest request) {
                 Restaurante atualizado = Restaurante.builder()
