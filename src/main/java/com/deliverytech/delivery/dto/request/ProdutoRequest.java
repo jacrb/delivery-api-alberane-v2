@@ -28,7 +28,7 @@ public class ProdutoRequest {
     @Schema(
         description = "Nome do produto",
         example = "Pizza Calabresa",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotBlank
     private String nome;
@@ -36,7 +36,7 @@ public class ProdutoRequest {
     @Schema(
         description = "Categoria ou tipo de culinária do produto",
         example = "Pizza",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotBlank
     private String categoria;
@@ -44,7 +44,7 @@ public class ProdutoRequest {
     @Schema(
         description = "Descrição detalhada do produto",
         example = "Pizza Calabresa com muçarela e cebola",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotBlank
     private String descricao;
@@ -52,7 +52,7 @@ public class ProdutoRequest {
     @Schema(
         description = "Preço do produto em Reais (R$), entre 0.01 e 5000.00",
         example = "49.90",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @DecimalMin("0.01")
     @DecimalMax("5000.0")

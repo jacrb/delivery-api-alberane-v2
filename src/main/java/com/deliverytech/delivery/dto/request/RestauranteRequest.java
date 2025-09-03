@@ -29,7 +29,7 @@ public class RestauranteRequest {
     @Schema(
         description = "Nome do restaurante",
         example = "Pizzaria Napoli",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotBlank
     private String nome;
@@ -37,7 +37,7 @@ public class RestauranteRequest {
     @Schema(
         description = "Categoria ou tipo de culinária do restaurante",
         example = "Italiana",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotBlank
     private String categoria;
@@ -45,7 +45,7 @@ public class RestauranteRequest {
     @Schema(
         description = "Número de telefone do restaurante",
         example = "(11) 98765-4321",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotBlank
     private String telefone;
@@ -53,7 +53,7 @@ public class RestauranteRequest {
     @Schema(
         description = "Valor da taxa de entrega em Reais (R$), deve ser positivo",
         example = "7.50",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @Positive
     private BigDecimal taxaEntrega;
@@ -61,7 +61,7 @@ public class RestauranteRequest {
     @Schema(
         description = "Tempo estimado de entrega em minutos (mínimo 5, máximo 90)",
         example = "40",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @Min(5)
     @Max(90)

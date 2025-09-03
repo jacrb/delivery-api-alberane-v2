@@ -27,7 +27,7 @@ public class PedidoRequest {
     @Schema(
         description = "Identificador do cliente que está realizando o pedido",
         example = "1",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotNull
     private Long clienteId;
@@ -35,21 +35,21 @@ public class PedidoRequest {
     @Schema(
         description = "Identificador do restaurante que receberá o pedido",
         example = "5",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotNull
     private Long restauranteId;
 
     @Schema(
         description = "Endereço para entrega do pedido",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotNull
     private Endereco enderecoEntrega;
 
     @Schema(
         description = "Lista de itens que compõem o pedido",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotNull
     private List<ItemPedidoRequest> itens;

@@ -19,7 +19,7 @@ public class ClienteRequest {
     @Schema(
         description = "Nome completo do cliente",
         example = "João da Silva",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotBlank
     private String nome;
@@ -27,7 +27,7 @@ public class ClienteRequest {
     @Schema(
         description = "Endereço de e-mail válido do cliente",
         example = "joao.silva@email.com",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @Email
     @NotBlank

@@ -19,7 +19,7 @@ public class ItemPedidoRequest {
     @Schema(
         description = "Identificador do produto a ser incluído no pedido",
         example = "10",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotNull
     private Long produtoId;
@@ -27,7 +27,7 @@ public class ItemPedidoRequest {
     @Schema(
         description = "Quantidade do produto no pedido",
         example = "2",
-        required = true
+        requiredMode = Schema.RequiredMode.REQUIRED
     )
     @Positive
     private Integer quantidade;
