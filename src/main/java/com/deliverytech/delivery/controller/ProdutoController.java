@@ -37,7 +37,7 @@ public class ProdutoController {
         private final RestauranteService restauranteService;
 
         @PostMapping
-        @Operation(summary="Cadastra um Produto")
+        @Operation(summary = "Cadastra um Produto")
         public ResponseEntity<ProdutoResponse> cadastrar(@Valid @RequestBody ProdutoRequest request) {
                 Restaurante restaurante = restauranteService.buscarPorId(request.getRestauranteId())
                                 .orElseThrow(() -> new RuntimeException("Restaurante não encontrado"));
@@ -72,6 +72,7 @@ public class ProdutoController {
         }
 
         @PutMapping("/{id}")
+
         @Operation(
                 summary = "Atualiza Produto do Restaurante", 
                 description = "Atualiza um Produto do restaurante definido no ID"
